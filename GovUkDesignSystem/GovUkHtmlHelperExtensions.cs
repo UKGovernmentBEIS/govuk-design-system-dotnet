@@ -154,6 +154,26 @@ namespace GovUkDesignSystem
             return await htmlHelper.PartialAsync("/GovUkDesignSystemComponents/CheckboxItem.cshtml", checkboxItemViewModel);
         }
         
+        public static async Task<IHtmlContent> GovUkCheckboxItemFor<TModel>(
+            this IHtmlHelper<TModel> htmlHelper,
+            Expression<Func<TModel, bool>> propertyLambdaExpression,
+            LabelViewModel labelOptions = null,
+            HintViewModel hintOptions = null,
+            Conditional conditional = null,
+            bool disabled = false,
+            string onChange = null)
+            where TModel : class
+        {
+            return await CheckboxItemHtmlGenerator.GenerateHtml(
+                htmlHelper,
+                propertyLambdaExpression,
+                labelOptions,
+                hintOptions,
+                conditional,
+                disabled,
+                onChange);
+        }
+        
         public static async Task<IHtmlContent> GovUkCookieBanner(
             this IHtmlHelper htmlHelper,
             CookieBannerViewModel cookieBannerViewModel)
@@ -291,6 +311,19 @@ namespace GovUkDesignSystem
         {
             return await htmlHelper.PartialAsync("/GovUkDesignSystemComponents/SubComponents/HtmlText.cshtml", htmlText);
         }
+        
+        public static async Task<IHtmlContent> GovUkHtmlTextFor<TModel, TProperty>(
+            this IHtmlHelper<TModel> htmlHelper,
+            Expression<Func<TModel, TProperty>> propertyLambdaExpression,
+            string appendix = null)
+            where TModel : class
+        {
+            return await HtmlTextGenerator.GenerateHtml(
+                htmlHelper,
+                propertyLambdaExpression,
+                appendix
+            );
+        }
 
         public static async Task<IHtmlContent> GovUkInsetText(
             this IHtmlHelper htmlHelper,
@@ -333,6 +366,14 @@ namespace GovUkDesignSystem
         {
             return await htmlHelper.PartialAsync("/GovUkDesignSystemComponents/NotificationBanner.cshtml",
                 notificationBannerViewModel);
+        }
+
+        public static async Task<IHtmlContent> GovUkPagination(
+            this IHtmlHelper htmlHelper,
+            PaginationViewModel paginationViewModel)
+        {
+            return await htmlHelper.PartialAsync("/GovUkDesignSystemComponents/Pagination.cshtml",
+                paginationViewModel);
         }
 
         public static async Task<IHtmlContent> GovUkPanel(
@@ -563,6 +604,8 @@ namespace GovUkDesignSystem
             TextInputAppendixViewModel textInputAppendix = null,
             string autocomplete = null,
             string placeholder = null,
+            string type = null,
+            bool spellcheck = false,
             string pattern = null,
             string idPrefix = null)
             where TModel : class
@@ -577,6 +620,8 @@ namespace GovUkDesignSystem
                 textInputAppendix,
                 autocomplete,
                 placeholder,
+                type,
+                spellcheck,
                 pattern,
                 idPrefix);
         }

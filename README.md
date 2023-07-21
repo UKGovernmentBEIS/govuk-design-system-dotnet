@@ -4,6 +4,11 @@ This is a collection of [Gov.UK Design System](https://design-system.service.gov
 
 It's the C# equivalent of the [Gov.UK Prototyping Kit](https://govuk-prototype-kit.herokuapp.com/docs) Nunjucks templates.
 
+To use this library your project will need to include content from the GOV.UK Frontend NPM package used by the components.
+For an example of how to include the content from the NPM package see [package.json](https://github.com/UKGovernmentBEIS/desnz-home-energy-retrofit-beta/blob/develop/HerPublicWebsite/package.json)
+from the DESNZ HER project.
+This library currently works with GOV.UK Frontend v4.2.0.
+
 
 #### Warning: work in progress
 

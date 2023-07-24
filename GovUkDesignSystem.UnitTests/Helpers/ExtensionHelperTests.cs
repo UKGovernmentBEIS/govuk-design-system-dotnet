@@ -3,7 +3,7 @@ using FluentAssertions;
 using GovUkDesignSystem.Helpers;
 using Xunit;
 
-namespace GovUkDesignSystem.UnitTests
+namespace GovUkDesignSystem.UnitTests.Helpers
 {
     public class ExtensionHelperTests
     {

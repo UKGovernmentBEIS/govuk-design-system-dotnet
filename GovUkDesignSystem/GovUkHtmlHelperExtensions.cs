@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using GovUkDesignSystem.Helpers;
 
 namespace GovUkDesignSystem
 {
@@ -372,6 +373,23 @@ namespace GovUkDesignSystem
             this IHtmlHelper htmlHelper,
             PaginationViewModel paginationViewModel)
         {
+            return await htmlHelper.PartialAsync("/GovUkDesignSystemComponents/Pagination.cshtml",
+                paginationViewModel);
+        }
+        
+        // Page numbering starts at 1
+        public static async Task<IHtmlContent> GovUkSimplePagination(
+            this IHtmlHelper htmlHelper,
+            int currentPage,
+            string[] allPageUrls)
+        {
+            var paginationViewModel = SimplePaginationHelper.GetViewModel(currentPage, allPageUrls);
+
+            if (paginationViewModel is null)
+            {
+                return null;
+            }
+            
             return await htmlHelper.PartialAsync("/GovUkDesignSystemComponents/Pagination.cshtml",
                 paginationViewModel);
         }

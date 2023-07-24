@@ -30,6 +30,11 @@ namespace GovUkDesignSystem.GovUkDesignSystemComponents
         public string Autocomplete { get; set; }
 
         /// <summary>
+        /// 	Attribute to provide a regular expression pattern, used to match allowed character combinations for the input value.
+        /// </summary>
+        public string Pattern { get; set; }
+        
+        /// <summary>
         ///     Classes to add to date input item.
         /// </summary>
         public string Classes { get; set; }

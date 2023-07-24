@@ -12,21 +12,20 @@ public static class SimplePaginationHelper
         int currentPage,
         string[] allPageUrls)
     {
+        // If there is only one page (or no pages) of results don't show pagination controls
+        if (allPageUrls.Length <= 1)
+        {
+            return null;
+        }
+        
         var maximumPage = allPageUrls.Length;
         
-        if (maximumPage < 1
-            || currentPage < 1
+        if (currentPage < 1
             || currentPage > maximumPage)
         {
             throw new ArgumentOutOfRangeException();
         }
 
-        // If there is only one page don't show pagination controls
-        if (maximumPage == 1)
-        {
-            return null;
-        }
-        
         var paginationLinks = new List<PaginationItemViewModel>
         {
             new ()

@@ -4,7 +4,7 @@ namespace GovUkDesignSystem.Attributes.DataBinding
 {
     public class GovUkDataBindingOptionalDecimalErrorTextAttribute : GovUkDataBindingErrorTextAttribute
     {
-        public GovUkDataBindingOptionalDecimalErrorTextAttribute(string nameAtStartOfSentence = "", Type resourceType = null, string resourceName = "", string mustBeNumberErrorMessage = "")
+        public GovUkDataBindingOptionalDecimalErrorTextAttribute(string nameAtStartOfSentence = "", string resourceName = "", string mustBeNumberErrorMessage = "", Type resourceType = null)
         {
             if (resourceType == null ^ string.IsNullOrEmpty(resourceName))
             {

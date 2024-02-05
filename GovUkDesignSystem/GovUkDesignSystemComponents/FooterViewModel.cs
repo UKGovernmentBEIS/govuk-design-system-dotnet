@@ -35,12 +35,12 @@ namespace GovUkDesignSystem.GovUkDesignSystemComponents
         /// <summary>
         /// HTML override to the text in the license description, to allow for localisation.
         /// </summary>
-        public FooterLicenseDescriptionViewModel FooterLicenseDescription { get; set; } = null;
+        public FooterLicenseDescriptionViewModel LicenseDescription { get; set; } = null;
         
         /// <summary>
         /// Text override to the copyright text, to allow for localisation.
         /// </summary>
-        public FooterCopyrightTextViewModel FooterCopyrightText { get; set; }
+        public FooterCopyrightTextViewModel CopyrightText { get; set; }
     }
 
     public class FooterMetaNavigationViewModel : IHtmlText

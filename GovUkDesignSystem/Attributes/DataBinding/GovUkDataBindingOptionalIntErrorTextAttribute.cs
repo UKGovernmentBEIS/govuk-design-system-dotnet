@@ -4,7 +4,7 @@ namespace GovUkDesignSystem.Attributes.DataBinding
 {
     public class GovUkDataBindingOptionalIntErrorTextAttribute : GovUkDataBindingErrorTextAttribute
     {
-        public GovUkDataBindingOptionalIntErrorTextAttribute(string nameAtStartOfSentence = "", Type resourceType = null, string resourceName = "", string isWholeNumberErrorMessage = "", string mustBeNumberErrorMessage = "")
+        public GovUkDataBindingOptionalIntErrorTextAttribute(string nameAtStartOfSentence = "", string mustBeNumberErrorMessage = "", string resourceName = "", string isWholeNumberErrorMessage = "", Type resourceType = null)
         {
             if(string.IsNullOrEmpty(nameAtStartOfSentence) && (string.IsNullOrEmpty(isWholeNumberErrorMessage) || string.IsNullOrEmpty(mustBeNumberErrorMessage)))
             {

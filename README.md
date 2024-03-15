@@ -8,7 +8,7 @@ To use this library your project will need to include some content from the [GOV
 [NPM package](https://www.npmjs.com/package/govuk-frontend) used by the components.
 For an example of how to include the content from the NPM package see [package.json](https://github.com/UKGovernmentBEIS/desnz-home-energy-retrofit-beta/blob/develop/HerPublicWebsite/package.json)
 from the DESNZ HER project.
-This library currently works with GOV.UK Frontend v4.2.0.
+This library currently works with GOV.UK Frontend v4.8.0 (and requires at least v4.8.0.)
 
 
 #### Warning: work in progress
@@ -20,6 +20,14 @@ Please feel free to use this in your own project.  You can see our [contributing
 
 If you do, please let us know, so we can avoid making changes that will cause problems for you.  
 Email: Dan Corder [dan.corder@softwire.com](mailto:dan.corder@softwire.com)
+
+##### Breaking change - 13/03/2024
+
+As of 13/03/2024 the path to the Queen's crown asset in Header.cshtml has been changed to that of the new King's Crown, per the GovUkFrontend [v4.8.0 release notes](https://github.com/alphagov/govuk-frontend/releases/tag/v4.8.0). This will break the fallback image for IE8 if that asset doesn't exist at the path specified.<br> This change is as follows:
+- Previous path: /assets/images/govuk-logotype-crown.png
+- New path: /assets/images/govuk-logotype-tudor-crown.png
+
+It is possible to use this with a version lower than v4.8.0 of the GovUkFrontend library, but this asset in particular must be imported manually to the path specified to avoid breaking.
 
 ##### Breaking change - 13/05/22
 As of the 13/05/22 the validation used by this library has changed so that it is more in line with the standard ASP.Net validation. The main impacts are:

@@ -8,7 +8,7 @@ To use this library your project will need to include some content from the [GOV
 [NPM package](https://www.npmjs.com/package/govuk-frontend) used by the components.
 For an example of how to include the content from the NPM package see [package.json](https://github.com/UKGovernmentBEIS/desnz-home-energy-retrofit-beta/blob/develop/HerPublicWebsite/package.json)
 from the DESNZ HER project.
-This library currently works with GOV.UK Frontend v4.8.0 (and requires v4.8.0.)
+This library currently works with GOV.UK Frontend v4.8.0 (and requires at least v4.8.0.)
 
 
 #### Warning: work in progress

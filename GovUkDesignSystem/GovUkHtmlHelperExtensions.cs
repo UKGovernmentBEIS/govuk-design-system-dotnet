@@ -78,6 +78,21 @@ namespace GovUkDesignSystem
             return await htmlHelper.PartialAsync("/GovUkDesignSystemComponents/Checkboxes.cshtml", checkboxesViewModel);
         }
 
+        /// <summary>
+        /// Generates HTML for checkboxes for a given enum.
+        /// The checkbox labels can be defined using the GovUkRadioCheckboxLabelText Attribute, or Display attribute.
+        /// </summary>
+        /// <param name="htmlHelper"></param>
+        /// <param name="propertyLambdaExpression"></param>
+        /// <param name="fieldsetOptions"></param>
+        /// <param name="hintOptions"></param>
+        /// <param name="classOptions"></param>
+        /// <param name="conditionalOptions"></param>
+        /// <param name="idPrefix"></param>
+        /// <param name="labelOptions"></param>
+        /// <typeparam name="TModel"></typeparam>
+        /// <typeparam name="TEnum"></typeparam>
+        /// <returns></returns>
         public static async Task<IHtmlContent> GovUkCheckboxesFor<TModel, TEnum>(
             this IHtmlHelper<TModel> htmlHelper,
             Expression<Func<TModel, List<TEnum>>> propertyLambdaExpression,
@@ -416,6 +431,24 @@ namespace GovUkDesignSystem
             return await htmlHelper.PartialAsync("/GovUkDesignSystemComponents/Radios.cshtml", radiosViewModel);
         }
 
+        /// <summary>
+        /// Generates HTML for radio buttons for a given enum.
+        /// The radio labels can be defined using the GovUkRadioCheckboxLabelText Attribute, or Display attribute.
+        /// </summary>
+        /// <param name="htmlHelper"></param>
+        /// <param name="propertyLambdaExpression"></param>
+        /// <param name="fieldsetOptions"></param>
+        /// <param name="hintOptions"></param>
+        /// <param name="classes"></param>
+        /// <param name="radioHints"></param>
+        /// <param name="conditionalOptions"></param>
+        /// <param name="labelOptions"></param>
+        /// <param name="attributeOptions"></param>
+        /// <param name="overrideRadioValues"></param>
+        /// <param name="idPrefix"></param>
+        /// <typeparam name="TModel"></typeparam>
+        /// <typeparam name="TEnum"></typeparam>
+        /// <returns></returns>
         public static async Task<IHtmlContent> GovUkRadiosFor<TModel, TEnum>(
             this IHtmlHelper<TModel> htmlHelper,
             Expression<Func<TModel, TEnum?>> propertyLambdaExpression,

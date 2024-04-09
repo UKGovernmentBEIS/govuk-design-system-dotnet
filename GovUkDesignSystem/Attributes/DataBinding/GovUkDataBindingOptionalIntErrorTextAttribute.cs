@@ -6,7 +6,7 @@ namespace GovUkDesignSystem.Attributes.DataBinding
     {
         public GovUkDataBindingOptionalIntErrorTextAttribute(string nameAtStartOfSentence)
         {
-            if (string.IsNullOrEmpty(nameAtStartOfSentence))
+            if(string.IsNullOrEmpty(nameAtStartOfSentence))
             {
                 throw new ArgumentNullException("nameAtStartOfSentence cannot be null or empty");
             }
@@ -18,6 +18,9 @@ namespace GovUkDesignSystem.Attributes.DataBinding
         /// <br/>e.g. "[Full name] must be 2 characters or more"
         /// <br/>e.g. "[Median age] must be a number"
         /// </summary>
-        public string NameAtStartOfSentence { get; private set; }
+        public string NameAtStartOfSentence { get; protected set; }
+        
+        public virtual string IsWholeNumberErrorMessage => "";
+        public virtual string MustBeNumberErrorMessage => "";
     }
 }

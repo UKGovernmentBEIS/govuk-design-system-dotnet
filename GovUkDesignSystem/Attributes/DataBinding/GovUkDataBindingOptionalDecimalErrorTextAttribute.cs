@@ -18,6 +18,8 @@ namespace GovUkDesignSystem.Attributes.DataBinding
         /// <br/>e.g. "[Full name] must be 2 characters or more"
         /// <br/>e.g. "[Median age] must be a number"
         /// </summary>
-        public string NameAtStartOfSentence { get; private set; }
+        public string NameAtStartOfSentence { get; protected set; }
+        
+        public virtual string MustBeNumberErrorMessage => "";
     }
 }

@@ -23,12 +23,14 @@ namespace GovUkDesignSystem.Attributes.DataBinding
         /// <br/>e.g. "[Full name] must be 2 characters or more"
         /// <br/>e.g. "[Median age] must be a number"
         /// </summary>
-        public string NameAtStartOfSentence { get; private set; }
+        public string NameAtStartOfSentence { get; }
 
         /// <summary>
         /// A complete sentence of the form: ‘Enter [whatever it is]’.
         /// <br/>For example, ‘Enter your first name’.
         /// </summary>
-        public string ErrorMessageIfMissing { get; private set; }
+        public virtual string ErrorMessageIfMissing { get; }
+
+        public virtual string MustBeNumberErrorMessage => "";
     }
 }

@@ -2,11 +2,11 @@
 
 namespace GovUkDesignSystem.Attributes.DataBinding
 {
-    public class GovUkDataBindingMandatoryDecimalLocalisableErrorTextAttribute : GovUkDataBindingLocalisableErrorTextAttribute
+    public class GovUkDataBindingMandatoryDecimalLocalisableErrorTextAttribute : GovUkDataBindingMandatoryDecimalErrorTextAttribute
     {
-        public GovUkDataBindingMandatoryDecimalLocalisableErrorTextAttribute(string errorMessageIfMissing, string nameAtStartOfSentence = "", string mustBeNumberErrorMessage = "", string resourceName = "", Type resourceType = null)
+        public GovUkDataBindingMandatoryDecimalLocalisableErrorTextAttribute(string errorMessageIfMissing, string nameAtStartOfSentence = "", string mustBeNumberErrorMessage = "", string resourceName = "", Type resourceType = null): base(errorMessageIfMissing, nameAtStartOfSentence)
         {
-            if(string.IsNullOrEmpty(nameAtStartOfSentence) && (string.IsNullOrEmpty(mustBeNumberErrorMessage)))
+            if(string.IsNullOrEmpty(nameAtStartOfSentence) && string.IsNullOrEmpty(mustBeNumberErrorMessage))
             {
                 throw new ArgumentNullException("nameAtStartOfSentence cannot be null or empty unless all error messages are overwritten");
             }
@@ -21,41 +21,23 @@ namespace GovUkDesignSystem.Attributes.DataBinding
                 throw new ArgumentNullException("errorMessageIfMissing cannot be null or empty");
             }
             
-            NameAtStartOfSentence = nameAtStartOfSentence;
-            ErrorMessageIfMissing = errorMessageIfMissing;
-            MustBeNumberErrorMessage = mustBeNumberErrorMessage;
+            _mustBeNumberErrorMessage = mustBeNumberErrorMessage;
             ResourceType = resourceType;
             ResourceName = resourceName;
         }
 
         /// <summary>
-        /// The name as it would appear at the start of a sentence
-        /// <br/>e.g. "[Full name] must be 2 characters or more"
-        /// <br/>e.g. "[Median age] must be a number"
-        /// </summary>
-        public string NameAtStartOfSentence { get; private set; }
-
-        /// <summary>
         /// A complete sentence of the form: ‘Enter [whatever it is]’.
         /// <br/>For example, ‘Enter your first name’.
         /// </summary>
-        private string _errorMessageIfMissing;
-        public string ErrorMessageIfMissing
-        {
-            get => GetResourceValue(_errorMessageIfMissing);
-            private set => _errorMessageIfMissing = value;
-        }
-        
+        public override string ErrorMessageIfMissing => GetResourceValue(base.ErrorMessageIfMissing);
+
         /// <summary>
         /// An override for the error message that is displayed if the value entered is not a number.
         /// A complete sentence of the form: ‘[Whatever it is] must be a number’
         /// <br/>e.g. "Median age must be a number"
         /// </summary>
-        private string _mustBeNumberErrorMessage;
-        public string MustBeNumberErrorMessage
-        {
-            get => GetResourceValue(_mustBeNumberErrorMessage);
-            private set => _mustBeNumberErrorMessage = value;
-        }
+        private readonly string _mustBeNumberErrorMessage;
+        public override string MustBeNumberErrorMessage => GetResourceValue(_mustBeNumberErrorMessage);
     }
 }

@@ -22,6 +22,7 @@ namespace GovUkDesignSystem.HtmlGenerators
             Dictionary<TEnum, string> classOptions = null,
             Dictionary<TEnum, Conditional> conditionalOptions = null,
             string idPrefix = null,
+            Dictionary<TEnum, string> dividerOptions = null,
             Dictionary<TEnum, LabelViewModel> labelOptions = null)
             where TModel : class
             where TEnum : struct, Enum
@@ -46,6 +47,8 @@ namespace GovUkDesignSystem.HtmlGenerators
                         };
                     }
 
+                    bool hasDivider = dividerOptions != null && dividerOptions.ContainsKey(enumValue);
+                    
                     string classes = null;
                     classOptions?.TryGetValue(enumValue, out classes);
 
@@ -55,6 +58,7 @@ namespace GovUkDesignSystem.HtmlGenerators
                         Id = $"{propertyName}_{enumValue}",
                         Checked = isEnumValueInListOfCurrentlySelectedValues,
                         Label = checkboxLabelViewModel,
+                        Divider = hasDivider ? dividerOptions[enumValue] : null,
                         Classes = classes
                     };
 

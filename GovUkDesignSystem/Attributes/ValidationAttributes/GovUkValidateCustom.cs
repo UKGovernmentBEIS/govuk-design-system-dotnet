@@ -10,16 +10,16 @@ public class GovUkValidateCustom: ValidationAttribute
 
     protected override ValidationResult IsValid(object value, ValidationContext validationContext)
     {
-        var isRequiredPropertyInfo = validationContext.ObjectInstance.GetType().GetProperty(CustomValidationPropertyName);
+        var propertyInfo = validationContext.ObjectInstance.GetType().GetProperty(CustomValidationPropertyName);
             
-        if (isRequiredPropertyInfo is null)
+        if (propertyInfo is null)
         {
             throw new ArgumentException(
                 $"'{CustomValidationPropertyName}' must be a boolean property in the model the attribute is included in");
         }
             
-        var isValid = (bool)isRequiredPropertyInfo.GetValue(validationContext.ObjectInstance, null)!;
+        var isValid = (bool)propertyInfo.GetValue(validationContext.ObjectInstance, null)!;
             
-        return isValid ? new ValidationResult(ErrorMessage) : ValidationResult.Success;
+        return isValid ? ValidationResult.Success : new ValidationResult(ErrorMessage) ;
     }
 }

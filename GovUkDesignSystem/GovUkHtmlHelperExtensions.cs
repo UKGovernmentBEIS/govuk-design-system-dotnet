@@ -100,8 +100,10 @@ namespace GovUkDesignSystem
             HintViewModel hintOptions = null,
             Dictionary<TEnum, string> classOptions = null,
             Dictionary<TEnum, Conditional> conditionalOptions = null,
-            string idPrefix = null,
-            Dictionary<TEnum, LabelViewModel> labelOptions = null
+
+        string idPrefix = null,
+            Dictionary<TEnum, LabelViewModel> labelOptions = null,
+            Dictionary<TEnum, string> dividerOptions = null
             )
             where TModel : class
             where TEnum : struct, Enum
@@ -114,6 +116,7 @@ namespace GovUkDesignSystem
                 classOptions,
                 conditionalOptions,
                 idPrefix,
+                dividerOptions,
                 labelOptions);
         }
 

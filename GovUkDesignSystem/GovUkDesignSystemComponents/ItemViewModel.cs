@@ -44,7 +44,7 @@ namespace GovUkDesignSystem.GovUkDesignSystemComponents
         public Conditional Conditional { set; get; }
 
         /// <summary>
-        ///     Divider text to separate items, for example the text "or".
+        ///     Divider text to separate this item from the one above, for example the text "or".
         /// </summary>
         public string Divider { set; get; }
 

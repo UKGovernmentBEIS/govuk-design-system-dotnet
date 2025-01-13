@@ -47,7 +47,7 @@ namespace GovUkDesignSystem.HtmlGenerators
                         };
                     }
 
-                    bool hasDivider = dividerOptions != null && dividerOptions.ContainsKey(enumValue);
+                    var hasDivider = dividerOptions != null && dividerOptions.ContainsKey(enumValue);
                     
                     string classes = null;
                     classOptions?.TryGetValue(enumValue, out classes);

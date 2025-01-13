@@ -78,6 +78,21 @@ namespace GovUkDesignSystem
             return await htmlHelper.PartialAsync("/GovUkDesignSystemComponents/Checkboxes.cshtml", checkboxesViewModel);
         }
 
+        /// <summary>
+        /// Creates checkbox html for a set of options defined in the given enum
+        /// </summary>
+        /// <param name="htmlHelper"></param>
+        /// <param name="propertyLambdaExpression">A lambda expression, giving the viewmodel and the List-of-enums type property on it</param>
+        /// <param name="fieldsetOptions"><see cref="FieldsetViewModel"/></param>
+        /// <param name="hintOptions">A hint to be displayed below the question</param>
+        /// <param name="classOptions">A dictionary of enum values, and string values to be inserted into the "class" attribute of the HTML</param>
+        /// <param name="conditionalOptions">A dictionary of enum values, and the condition under which to show the corresponding option</param>
+        /// <param name="idPrefix">String value to append to the start of the id attribute for generated checkboxes</param>
+        /// <param name="labelOptions">A dictionary of enum values, and the hint text to display under that enum value's checkbox</param>
+        /// <param name="dividerOptions">A dictionary of enum values, and the divider text (e.g "or") that should appear before it in the checkbox list</param>
+        /// <typeparam name="TModel">The viewmodel associated with the view</typeparam>
+        /// <typeparam name="TEnum">The enum property within the viewmodel</typeparam>
+        /// <returns></returns>
         public static async Task<IHtmlContent> GovUkCheckboxesFor<TModel, TEnum>(
             this IHtmlHelper<TModel> htmlHelper,
             Expression<Func<TModel, List<TEnum>>> propertyLambdaExpression,
@@ -85,11 +100,10 @@ namespace GovUkDesignSystem
             HintViewModel hintOptions = null,
             Dictionary<TEnum, string> classOptions = null,
             Dictionary<TEnum, Conditional> conditionalOptions = null,
-
-        string idPrefix = null,
+            string idPrefix = null,
             Dictionary<TEnum, LabelViewModel> labelOptions = null,
             Dictionary<TEnum, string> dividerOptions = null
-            )
+        )
             where TModel : class
             where TEnum : struct, Enum
         {

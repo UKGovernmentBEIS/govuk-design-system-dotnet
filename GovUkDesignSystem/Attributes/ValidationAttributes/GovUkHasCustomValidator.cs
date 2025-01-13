@@ -21,7 +21,7 @@ public class GovUkHasCustomValidator : ValidationAttribute
         if (propertyInfo.CanWrite)
             throw new ArgumentException($"'{CustomerValidatorPropertyName}' must be a read-only property");
 
-        var isValid = (bool)propertyInfo.GetValue(validationContext.ObjectInstance, null)!;
+        var isValid = (bool)propertyInfo.GetValue(validationContext.ObjectInstance)!;
 
         return isValid ? ValidationResult.Success : new ValidationResult(ErrorMessage);
     }

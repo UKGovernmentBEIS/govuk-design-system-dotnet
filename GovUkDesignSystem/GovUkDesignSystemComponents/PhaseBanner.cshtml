@@ -2,7 +2,7 @@
 @using GovUkDesignSystem.Helpers
 @model GovUkDesignSystem.GovUkDesignSystemComponents.PhaseBannerViewModel
 
-<div class="govuk-phase-banner @(Model.Classes)"
+<div class="govuk-phase-banner @(Model.Classes)" role="heading"
      @(Html.Raw(Model.Attributes.ToTagAttributes()))>
 
     <p class="govuk-phase-banner__content">

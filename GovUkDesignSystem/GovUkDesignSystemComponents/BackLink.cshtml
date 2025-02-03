@@ -12,18 +12,20 @@
 }
 @if (showLink)
 {
-    <a href="@(Model.Href ?? "#")" class="govuk-back-link @(Model.Classes)" id="back-link" role="navigation">
-        @*This doesn't work yet - The GenderPayGap.WebUI.Classes.TagHelpers.AnchorTagHelper doesn't currently allow arbitrary attributes*@
-        @*@(Html.Raw( Model.Attributes.ToTagAttributes() ))*@
+    <nav aria-label="Back link">
+        <a href="@(Model.Href ?? "#")" class="govuk-back-link @(Model.Classes)" id="back-link">
+            @*This doesn't work yet - The GenderPayGap.WebUI.Classes.TagHelpers.AnchorTagHelper doesn't currently allow arbitrary attributes*@
+            @*@(Html.Raw( Model.Attributes.ToTagAttributes() ))*@
 
-        @{
-        if (Model.Html == null && Model.Text == null)
-        {
-        Model.Text = "Back";
-        }
-        await Html.RenderPartialAsync("/GovUkDesignSystemComponents/SubComponents/HtmlText.cshtml", Model);
-        }
-    </a>
+            @{
+                if (Model.Html == null && Model.Text == null)
+                {
+                    Model.Text = "Back";
+                }
+                await Html.RenderPartialAsync("/GovUkDesignSystemComponents/SubComponents/HtmlText.cshtml", Model);
+            }
+        </a>
+    </nav>
 }
 @if (Model.OverrideWithJavascript)
 {

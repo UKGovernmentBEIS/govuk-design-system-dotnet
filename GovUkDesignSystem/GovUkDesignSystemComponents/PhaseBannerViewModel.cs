@@ -35,5 +35,10 @@ namespace GovUkDesignSystem.GovUkDesignSystemComponents
         /// </summary>
         public string Text { get; set; }
 
+        /// <summary>
+        ///     Text to use as the aria label for the header region
+        /// </summary>
+        public string AriaLabel { get; set; } = "Banner";
+
     }
 }

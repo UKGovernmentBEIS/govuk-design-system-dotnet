@@ -2,7 +2,7 @@
 @using GovUkDesignSystem.Helpers
 @model GovUkDesignSystem.GovUkDesignSystemComponents.PhaseBannerViewModel
 
-<heading aria-label="@Model.AriaLabel">
+<header aria-label="@Model.AriaLabel">
     <div class="govuk-phase-banner @(Model.Classes)"
          @(Html.Raw(Model.Attributes.ToTagAttributes()))>
 
@@ -19,4 +19,4 @@
             </span>
         </p>
     </div>
-</heading>
+</header>

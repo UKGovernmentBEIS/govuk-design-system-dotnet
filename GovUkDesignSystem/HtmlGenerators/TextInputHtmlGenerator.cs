@@ -23,7 +23,8 @@ namespace GovUkDesignSystem.HtmlGenerators
             string type = null,
             bool spellcheck = false,
             string pattern = null,
-            string idPrefix = null
+            string idPrefix = null,
+            string inputMode = ""
         )
             where TModel : class
         {
@@ -53,7 +54,8 @@ namespace GovUkDesignSystem.HtmlGenerators
                 Placeholder = placeholder,
                 Spellcheck = spellcheck,
                 Value = inputValue,
-                Pattern = pattern
+                Pattern = pattern,
+                InputMode = inputMode
             };
 
             HtmlGenerationHelpers.SetErrorMessages(textInputViewModel, modelStateEntry);

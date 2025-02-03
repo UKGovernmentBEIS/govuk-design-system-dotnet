@@ -24,7 +24,7 @@ namespace GovUkDesignSystem.HtmlGenerators
             bool spellcheck = false,
             string pattern = null,
             string idPrefix = null,
-            string inputMode = ""
+            string inputMode = null
         )
             where TModel : class
         {

@@ -28,6 +28,7 @@
            type="@(Model.Type ?? "text")"
            value="@(Model.Value)"
            aria-describedby="@(describedBy?.Trim())"
+           aria-labelledby="@(Model.LabelledBy?.Trim())"
            autocomplete="@(Model.Autocomplete)"
            placeholder="@(Model.Placeholder)"
            spellcheck="@(Model.Spellcheck ? "true" : "false")"

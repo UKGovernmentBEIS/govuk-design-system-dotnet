@@ -18,6 +18,7 @@ namespace GovUkDesignSystem.SnapshotTests.GovUkDesignSystemComponents
                 Type = "text",
                 InputMode = "test-input-mode",
                 DescribedBy = "test-described-by",
+                LabelledBy = "test-labelled-by",
                 Label = new LabelViewModel { Text = "test-label" },
                 Hint = new HintViewModel { Text = "test-hint" },
                 ErrorMessage = new ErrorMessageViewModel { Text = "test-error" },
@@ -99,6 +100,18 @@ namespace GovUkDesignSystem.SnapshotTests.GovUkDesignSystemComponents
             // Arrange
             var viewModel = DefaultTextInputViewModel();
             viewModel.DescribedBy = null;
+            viewModel.Hint = null;
+            viewModel.ErrorMessage = null;
+
+            // Act & Assert
+            await VerifyPartial("TextInput", viewModel);
+        }
+        
+        public async Task Render_NoLabelledBy()
+        {
+            // Arrange
+            var viewModel = DefaultTextInputViewModel();
+            viewModel.LabelledBy = null;
             viewModel.Hint = null;
             viewModel.ErrorMessage = null;
 

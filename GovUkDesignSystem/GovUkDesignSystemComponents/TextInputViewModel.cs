@@ -36,6 +36,12 @@ namespace GovUkDesignSystem.GovUkDesignSystemComponents
         ///     used to provide additional descriptive information for screenreader users.
         /// </summary>
         public string DescribedBy { get; set; }
+        
+        /// <summary>
+        ///     One or more element IDs to add to the aria-labelledBy attribute,
+        ///     used to provide descriptive information for screenreader users.
+        /// </summary>
+        public string LabelledBy { get; set; }
 
         /// <summary>
         ///     Required. Options for the label component.

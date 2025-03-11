@@ -643,7 +643,8 @@ namespace GovUkDesignSystem
             bool spellcheck = false,
             string pattern = null,
             string idPrefix = null,
-            string inputMode = null)
+            string inputMode = null,
+            string labelledBy = null)
             where TModel : class
         {
             return await TextInputHtmlGenerator.GenerateHtml(
@@ -660,7 +661,8 @@ namespace GovUkDesignSystem
                 spellcheck,
                 pattern,
                 idPrefix, 
-                inputMode);
+                inputMode,
+                labelledBy);
         }
     }
 }

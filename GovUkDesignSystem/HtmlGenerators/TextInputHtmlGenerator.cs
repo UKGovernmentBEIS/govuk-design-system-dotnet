@@ -24,7 +24,8 @@ namespace GovUkDesignSystem.HtmlGenerators
             bool spellcheck = false,
             string pattern = null,
             string idPrefix = null,
-            string inputMode = null
+            string inputMode = null,
+            string labelledBy = null
         )
             where TModel : class
         {
@@ -50,6 +51,7 @@ namespace GovUkDesignSystem.HtmlGenerators
                 FormGroup = formGroupOptions,
                 Classes = classes,
                 TextInputAppendix = textInputAppendix,
+                LabelledBy = labelledBy,
                 Autocomplete = autocomplete,
                 Placeholder = placeholder,
                 Spellcheck = spellcheck,

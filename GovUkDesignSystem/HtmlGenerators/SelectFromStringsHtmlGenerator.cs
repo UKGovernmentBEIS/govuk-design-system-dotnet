@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using GovUkDesignSystem.ModelBinders;
 
 namespace GovUkDesignSystem.HtmlGenerators
 {
@@ -24,6 +25,7 @@ namespace GovUkDesignSystem.HtmlGenerators
             Dictionary<string, string> attributeOptions = null,
             Dictionary<string, Dictionary<string, string>> itemAttributeOptions = null,
             Dictionary<string, bool> disabledOptions = null,
+            PlaceholderViewModel placeHolderOptions = null,
             string idPrefix = null)
             where TModel : class
         {
@@ -34,7 +36,19 @@ namespace GovUkDesignSystem.HtmlGenerators
             // Get the value to put in the input from the post data if possible, otherwise use the value in the model 
             var selectedValue = HtmlGenerationHelpers.GetStringValueFromModelStateOrModel(modelStateEntry, htmlHelper.ViewData.Model, propertyExpression);
 
-            List<SelectItemViewModel> selectItems = selectOptions.Select(kvp =>
+            List<SelectItemViewModel> selectItems = [];
+
+            if (placeHolderOptions != null)
+            {
+                selectItems.Add(new SelectItemViewModel
+                    {
+                        Value = placeHolderOptions.Value ?? GovUkValueWithPlaceholderBinder.DefaultPlaceholder,
+                        Text = placeHolderOptions.Text,
+                        Selected = selectedValue == null,
+                    });
+            }
+                
+            selectItems.AddRange(selectOptions.Select(kvp =>
                 {
                     string value = kvp.Key;
                     string text = kvp.Value ?? value;
@@ -56,7 +70,7 @@ namespace GovUkDesignSystem.HtmlGenerators
 
                     return selectItemViewModel;
                 })
-                .ToList();
+                .ToList());
 
             var selectViewModel = new SelectViewModel
             {
